@@ -1,6 +1,6 @@
-<!-- <?php
+<?php
 include('server.php')
-?> -->
+?> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -108,14 +108,15 @@ include('server.php')
   <div class="wrapper">
         <h2>Registration</h2>
         <form action="Signup.php" method="POST">
+            <?php include('errors.php'); ?>
         <div class="input-box">
-            <input type="text" placeholder="Enter your  first name" required>
+            <input type="text" placeholder="Enter your  first name" value="<?php echo $firstname; ?>" required>
         </div>
         <div class="input-box">
-            <input type="text" placeholder="Enter your last name" required>
+            <input type="text" placeholder="Enter your last name" value="<?php echo $firstname; ?>" required>
         </div>
         <div class="input-box">
-            <input type="text" placeholder="Enter your email" required>
+            <input type="text" placeholder="Enter your email" value="<?php echo $firstname; ?>" required>
         </div>
         <div class="input-box">
             <input type="password" placeholder="Create password" required>

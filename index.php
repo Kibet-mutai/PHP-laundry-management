@@ -1,3 +1,11 @@
+<?php
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['firstname']);
+    header("location:index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +19,18 @@
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+	<div class="content">
+		<?php if (isset($_SESSION['success'])) : ?>
+		<div class="error-succes">
+			<h3>
+				<?php
+				echo $_SESSION['success'];
+				unset($_SESSION['success']);
+				?>
+			</h3>
+		</div>
+		<?php endif ?>
+	</div>
 	<!----hero Section start---->
 	<div class="hero">
 		<nav>
@@ -21,10 +41,11 @@
 				<li><a href="Login.php">Login</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Contact</a></li>
+				<li> <a href="index.php?logout='1'" style="color: red;">logout</a> </li>
 			</ul>
 		</nav>
 		    <div class="content">
-                <h4>Hello , Welcome to our site</h4>
+                <h4>Hello , <strong><?php echo $_SESSION['firstname']; ?></strong> Welcome to our site</h4>
                 <h1>Rongai <span>Laundry</span></h1>
                 <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, sapiente facilis! Nulla, exercitationem omnis.</h3>
 			</div>
