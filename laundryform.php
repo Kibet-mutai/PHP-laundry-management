@@ -29,7 +29,7 @@ if (isset($_GET['edit'])) {
     <title>Laundry form</title>
 </head>
 <body>
-    <form method="post" action="server.php" >
+    <form method="post" action="laundryform.php" >
         <div class="input-group">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
         </div>
